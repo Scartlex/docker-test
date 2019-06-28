@@ -1,0 +1,7 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t scartlex/docker-test -f Dockerfile.dev .
+script:
+  - docker run scartlex/docker-test npm run test -- --coverage
